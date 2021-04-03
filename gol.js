@@ -13,14 +13,11 @@ let action = false;
 let funcInterval;
 let score = getElem('Score');
 let count1 = 0;
-
-
 const defGame = () => {
     clearInterval(funcInterval);
     count1 = 0;
     score.innerHTML = `Дней: ${count1}`;
 };
-
 inputX.oninput = (event) => {
     defGame();
     x = +event.target.value;
@@ -32,7 +29,6 @@ inputX.oninput = (event) => {
         console.log(arr);
     }
 };
-
 inputY.oninput = (event) => {
     defGame();
     y = +event.target.value;
@@ -44,7 +40,6 @@ inputY.oninput = (event) => {
         console.log(arr);
     }
 };
-
 function createTable(arr1) {
     table.innerHTML = '';
     arr1.forEach((elem, i) => {
@@ -71,24 +66,19 @@ function createTable(arr1) {
         table.appendChild(tr);
     });
 };
-
 createTable(arr);
-
 const clearArr = (fillArr) => fillArr.map((item) => item.map(() => 0));
 const randomArr = (anyArr) => anyArr.map(item => item.map(() => Math.round(Math.random())));
-
 btnClear.onclick = () => {
     defGame();
     arr = clearArr(arr);
     createTable(arr);
 };
-
 btnRandom.onclick = () => {
     defGame();
     arr = randomArr(arr);
     createTable(arr);
 };
-
 const cellStart = () => {
     return arr.map((item, i, arr1) => item.map((item1, j) => {
         let count = 0;
@@ -108,7 +98,6 @@ const cellStart = () => {
         }
     }));
 };
-
 btnStart.onclick = () => {
     if (action) {
         clearInterval(funcInterval);
